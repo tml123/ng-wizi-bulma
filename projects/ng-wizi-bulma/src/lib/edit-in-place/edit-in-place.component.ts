@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   selector: 'nwb-edit-in-place',
   templateUrl: './edit-in-place.component.html',
   styleUrls: ['./edit-in-place.component.scss'],
+  host: {
+    class: 'nwb-edit-in-place'
+  },
   encapsulation: ViewEncapsulation.None,
   providers: [
     {
@@ -32,24 +35,24 @@ export class NwbEditInPlaceComponent implements ControlValueAccessor, OnInit {
   public editing = false;
   public isLoading;
 
-  public onChange: any = Function.prototype;
-  public onTouched: any = Function.prototype;
+  private onChange: Function = Function.prototype;
+  private onTouched: Function = Function.prototype;
 
   ngOnInit() {
     this.resizeInput();
   }
 
-  get value(): any {
+  get value(): string {
     return this.currentValue;
   }
 
-  set value(v: any) {
+  set value(v: string) {
     if (v !== this.currentValue) {
       this.currentValue = v;
     }
   }
 
-  writeValue(value: any) {
+  writeValue(value: string) {
     this.currentValue = value;
   }
 
@@ -62,9 +65,10 @@ export class NwbEditInPlaceComponent implements ControlValueAccessor, OnInit {
   }
 
   private _setValue(v: string) {
-    this.onChange(v);
     this.writeValue(v);
     this.value = v;
+    this.onChange(v);
+    this.resizeInput();
   }
 
   edit() {
@@ -110,7 +114,7 @@ export class NwbEditInPlaceComponent implements ControlValueAccessor, OnInit {
 }
 
 export interface NwbEditInPlaceConfig {
-  /** TODO Options to pass to populate a Dropdown **/
+  /** TODO Set Options to populate a Dropdown **/
   // _options?: QueryList<NwbOptionComponent>;
 
   /** Data to pass as the second argument for the handler method if any **/

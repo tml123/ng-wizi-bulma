@@ -1,6 +1,4 @@
-<span
-  #invisibleText
-  id="invisibleTextID">
+<span #invisibleText>
   {{ currentValue }}
 </span>
 
@@ -9,11 +7,12 @@
   [class.editable]="!editing"
   [class.editing]="editing"
   [class.isLoading]="isLoading"
+  [disabled]="isLoading"
   type="text"
   [(ngModel)]="value"
   (focus)="edit()"
   (blur)="onSubmit()"
-  (keypress.enter)="onSubmit()"
+  (keyup.enter)="onSubmit()"
   (input)="resizeInput()"
   [ngStyle]="{'width.px': inputWidth}"
 />

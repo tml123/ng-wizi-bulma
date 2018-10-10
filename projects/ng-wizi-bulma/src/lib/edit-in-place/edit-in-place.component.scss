@@ -1,24 +1,25 @@
-input {
+input,
+span {
   font-size: inherit;
-  margin-right: 6px;
-  margin-left: 6px;
-  transition: width 50ms;
+  padding: 1px 4px 1px 4px;
+  margin: 1px 4px 1px 4px;
+  height: 26px;
 }
 
 .editable {
   text-decoration: none;
   color: black;
-  border: none;
-  border-bottom: dashed 1px #428bca;
+  border: 1px dashed transparent;
+  border-bottom-color: #428bca;
   cursor: pointer;
-  height: 26px;
+  background-color: transparent;
 }
 
 .editing {
   color: #a8a8a8;
 }
 
-#invisibleTextID {
+span {
   white-space: pre;
   position: absolute;
   height: 0;
