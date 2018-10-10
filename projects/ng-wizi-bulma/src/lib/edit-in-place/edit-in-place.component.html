@@ -1,18 +1,21 @@
-<span #invisibleText>
+<span class="invisible" #invisibleText>
   {{ currentValue }}
 </span>
 
-<input
-  #editInPlace
-  [class.editable]="!editing"
-  [class.editing]="editing"
-  [class.isLoading]="isLoading"
-  [disabled]="isLoading"
-  type="text"
-  [(ngModel)]="value"
-  (focus)="edit()"
-  (blur)="onSubmit()"
-  (keyup.enter)="onSubmit()"
-  (input)="resizeInput()"
-  [ngStyle]="{'width.px': inputWidth}"
-/>
+<span class="wrapper">
+  <input
+    #editInPlace
+    [class.editable]="!editing"
+    [class.editing]="editing"
+    [class.is-loading]="isLoading"
+    [disabled]="isLoading"
+    type="text"
+    [(ngModel)]="value"
+    (focus)="edit()"
+    (blur)="onSubmit()"
+    (keyup.enter)="onSubmit()"
+    (input)="resizeInput()"
+    [ngStyle]="{'width.px': inputWidth}"
+  />
+  <span [class.is-loading]="isLoading" class="loader"></span>
+</span>

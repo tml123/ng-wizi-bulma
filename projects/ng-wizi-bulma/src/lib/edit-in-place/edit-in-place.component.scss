@@ -1,9 +1,15 @@
+@import '~bulma';
+
 input,
 span {
   font-size: inherit;
-  padding: 1px 4px 1px 4px;
-  margin: 1px 4px 1px 4px;
+  padding: 1px 2px 1px 2px;
+  margin: 1px 2px 1px 2px;
   height: 26px;
+}
+
+input.is-loading {
+  opacity: 0;
 }
 
 .editable {
@@ -19,9 +25,24 @@ span {
   color: #a8a8a8;
 }
 
-span {
+.invisible {
   white-space: pre;
   position: absolute;
   height: 0;
   overflow: hidden;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  span {
+    position: absolute;
+    top: calc(50% - 0.5em);
+    left: calc(50% - 0.5em);
+    opacity: 0;
+  }
+  span.is-loading {
+    opacity: 1;
+  }
 }
