@@ -4,6 +4,7 @@ import { NwbTabComponent } from './tab.component';
 
 @Component({
   selector: 'nwb-tabs',
+  styleUrls: ['./tabs.component.scss'],
   template: `
     <div class="tabs
     {{alignment&&'is-'+alignment}}
